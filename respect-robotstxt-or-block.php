@@ -3,7 +3,7 @@
  * Plugin Name:       Respect the robots.txt or be blocked
  * Description:       Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway
  * Plugin URI:        https://leafext.de/hp/categories/robots-txt/
- * Update URI:        https://github.com/hupe13/block-bad-bots-github
+ * Update URI:        https://github.com/hupe13/respect-robotstxt-or-block/
  * Version:           250705
  * Requires PHP:      8.1
  * Author:            hupe13
