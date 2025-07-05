@@ -50,14 +50,22 @@ RewriteRule ^robots.txt$ /subdir/robots-check/
 
 * Please check, if you need some flags in RewriteRule: `[R]` or `[R,L]` or other or nothing. Use for example `wget` to check it:
 ````
-wget -v -O - https://your-domain.tld/robots-check/   # valid robots.txt enables crawling
-wget -v -O - https://your-domain.tld/robots.txt      # valid robots.txt enables crawling
-wget -v -O - https://your-domain.tld/                # web site
+wget -v -O - https://your-domain.tld/robots-check/                    # valid robots.txt enables crawling
+# or if your WordPress installation is in a subdirectory:
+wget -v -O - https://your-domain.tld/subdir/robots-check/             # valid robots.txt enables crawling
 ````
 ````
-wget -v -O - -U blabla https://your-domain.tld/robots-check/  # User-agent: *  Disallow: /
-wget -v -O - -U blabla https://your-domain.tld/robots.txt     # User-agent: *  Disallow: /
-wget -v -O - -U blabla https://your-domain.tld/               # Status code: 403 - Forbidden
+wget -v -O - https://your-domain.tld/robots.txt                       # valid robots.txt enables crawling
+wget -v -O - https://your-domain.tld/                                 # web site
+````
+````
+wget -v -O - -U blabla https://your-domain.tld/robots-check/          # User-agent: *  Disallow: /
+# or if your WordPress installation is in a subdirectory:
+wget -v -O - -U blabla https://your-domain.tld/subdir/robots-check/   # valid robots.txt enables crawling
+````
+````
+wget -v -O - -U blabla https://your-domain.tld/robots.txt             # User-agent: *  Disallow: /
+wget -v -O - -U blabla https://your-domain.tld/                       # Status code: 403 - Forbidden
 ````
 
 * Use phpmyadmin or a plugin like [WP Adminer](https://wordpress.org/plugins/pexlechris-adminer/) and create entries in `wp_badcrawler`.
