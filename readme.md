@@ -3,7 +3,7 @@
 Contributors: hupe13    
 Tags: robots.txt, bad crawlers, bad bots  
 Tested up to: 6.8  
-Stable tag: 250705     
+Stable tag: 250706     
 Requires at least: 6.7     
 Requires PHP: 8.1     
 License: GPLv2 or later
@@ -24,10 +24,11 @@ Please check regularly the Github repository or use [leafext-update-github](http
 
 * You have a robots.txt or create a robots.txt in every server root directory as usual.
 
-* If no robots.txt is available, the plugin provides one and enables crawling:
+* If no robots.txt is available, the plugin provides the WordPress default robots.txt file content with [do_robots()](https://developer.wordpress.org/reference/functions/do_robots/):
 ````
 User-agent: *
-Allow: /
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
 ````
 
 * Activate the plugin, it creates a table in the WordPress database named `wp_badcrawler` (with your prefix). If you activate the plugin network wide, then the database is valid for all sites. If you have more than one domain, you can have a table for every domain.
@@ -70,7 +71,7 @@ wget -v -O - -U blabla https://your-domain.tld/                       # Status c
 
 * Use phpmyadmin or a plugin like [WP Adminer](https://wordpress.org/plugins/pexlechris-adminer/) and create entries in `wp_badcrawler`.
 
-* An [example](https://github.com/hupe13/respect-robotstxt-or-block/blob/main/example/BadCrawler.sql) is given. Edit BadCrawler.sql and import it in the database. But check it, if is valid for you.
+* An example is given. Edit BadCrawler.sql and import it in the database. But check it, if is valid for you.
 
 * You can use any substring of the bad crawlers (type `bot`) or any substring of the remote agent's domain name (type `name`).
 

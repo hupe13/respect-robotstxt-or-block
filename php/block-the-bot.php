@@ -53,15 +53,14 @@ function resprobots_get_robots_txt( $posts ) {
 
 		// Default 'WordPress/' . get_bloginfo( 'version' ) . ‘; ‘ . get_bloginfo( 'url' ).
 		$response = wp_remote_get( 'https://' . getenv( 'HTTP_HOST' ) . '/robots.txt' );
-		if ( is_array( $response ) && ! is_wp_error( $response ) ) {
+		if ( is_array( $response ) && wp_remote_retrieve_response_code( $response ) === 200 ) {
 			header( 'Content-Type: text/plain; charset=UTF-8' );
 			echo esc_html( $response['body'] ); // use the content
 			exit;
 		}
 
 		header( 'Content-Type: text/plain; charset=UTF-8' );
-		echo "User-agent: *\r\n" .
-		'Allow: /' . "\r\n";
+		do_robots();
 		exit;
 	}
 	return $posts;
