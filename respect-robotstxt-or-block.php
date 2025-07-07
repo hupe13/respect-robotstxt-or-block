@@ -74,8 +74,10 @@ function resprobots_upgrade_completed( $upgrader_object, $options ) {
 function resprobots_uninstall() {
 	global $wpdb;
 	$table_name = resprobots_get_table_name();
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 	$wpdb->query(
 		$wpdb->prepare(
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.SchemaChange
 			'DROP TABLE IF EXISTS %i',
 			$table_name
 		)
@@ -128,9 +130,8 @@ function resprobots_error_log( $reason ) {
 	}
 
 	if ( $logfile !== '' ) {
-		$ip = getenv( 'REMOTE_ADDR' );
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-		error_log( '[' . current_time( 'mysql' ) . '] ' . get_site_url() . ' - ' . $ip . ': ' . $reason . "\r\n", 3, $logfile );
+		error_log( '[' . current_time( 'mysql' ) . '] ' . get_site_url() . ': ' . $reason . "\r\n", 3, $logfile );
 	}
 }
 

@@ -15,11 +15,7 @@ function resprobots_get_robots_txt( $posts ) {
 	if ( ( strtolower( $wp->request ) === $resprobots_robots_slug || strtolower( $wp->request ) === 'robots.txt' ) ) {
 		$agent      = getenv( 'HTTP_USER_AGENT' );
 		$table_name = resprobots_transient_table();
-
-		// $cacheagent = preg_replace('/[^A-Za-z0-9\-]/', '', $agent);
-		// $cacheagent = sanitize_title( $cacheagent );
-		// https://wordpress.stackexchange.com/questions/426419/plugin-development-code-standard-not-matching-for-sql-query
-
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$badbot = $wpdb->query(
 			$wpdb->prepare(
 				"UPDATE %i SET robots = robots + 1 WHERE type = 'bot' AND INSTR('" . esc_sql( $agent ) . "', browser)",
@@ -36,6 +32,7 @@ function resprobots_get_robots_txt( $posts ) {
 		$ip   = getenv( 'REMOTE_ADDR' );
 		$host = gethostbyaddr( $ip );
 		if ( $host !== $ip && $host !== false ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$badbot = $wpdb->query(
 				$wpdb->prepare(
 					"UPDATE %i SET robots = robots + 1 WHERE type = 'name' AND INSTR('" . esc_sql( $host ) . "', browser)",
@@ -87,20 +84,22 @@ function resprobots_badcrawler() {
 	&& strpos( $file, 'robots-check' ) === false
 	) {
 		$table_name = resprobots_transient_table();
-		$badbot     = $wpdb->query(
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$badbot = $wpdb->query(
 			$wpdb->prepare(
 				"UPDATE %i SET count = count + 1 WHERE type = 'bot' AND INSTR('" . esc_sql( $agent ) . "', browser)",
 				$table_name
 			)
 		);
 		if ( $badbot > 0 ) {
-			resprobots_error_log( 'BadCrawler: ' . $agent );
+			resprobots_error_log( 'BadCrawler: ' . $ip . ' - ' . $agent );
 			status_header( 403 );
 			exit();
 		}
 
 		$host = gethostbyaddr( $ip );
 		if ( $host !== $ip && $host !== false ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$badbot = $wpdb->query(
 				$wpdb->prepare(
 					"UPDATE %i SET count = count + 1 WHERE type = 'name' AND INSTR('" . esc_sql( $host ) . "', browser)",
@@ -108,7 +107,7 @@ function resprobots_badcrawler() {
 				)
 			);
 			if ( $badbot > 0 ) {
-				resprobots_error_log( 'BadHostname: ' . $host );
+				resprobots_error_log( 'BadHostname: ' . $ip . ' - ' . $host );
 				status_header( 403 );
 				exit();
 			}

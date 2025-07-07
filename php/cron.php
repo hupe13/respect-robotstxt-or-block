@@ -46,6 +46,7 @@ function resprobots_rotate_table( $table_name ) {
 	resprobots_error_log( 'Checking - ' . $resprobots_options['rotate'] . ' - Next rotate: ' . $resprobots_options['next_rotate'] . ' ' . $table_name );
 	if ( $resprobots_options['next_rotate'] <= current_time( 'Ymd' ) ) {
 		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$entries = $wpdb->get_results(
 			$wpdb->prepare(
 				'UPDATE %i SET last=last, count_2=count_1, robots_2=robots_1, count_1=count, robots_1=robots, count=0, robots=0 WHERE 1',

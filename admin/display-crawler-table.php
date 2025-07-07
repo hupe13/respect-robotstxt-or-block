@@ -72,6 +72,7 @@ function resprobots_help() {
 	$text       .= $last_rotate . '</p>';
 
 	global $wpdb;
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 	$entries      = $wpdb->get_results(
 		$wpdb->prepare(
 			'SELECT * FROM %i WHERE count+count_1+count_2+robots+robots_1+robots_2 > 0 ORDER BY last DESC',
