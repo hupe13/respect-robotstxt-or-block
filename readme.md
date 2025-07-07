@@ -24,7 +24,7 @@ Please check regularly the Github repository or use [leafext-update-github](http
 
 * You have a robots.txt or create a robots.txt in every server root directory as usual.
 
-* If no robots.txt is available, the plugin provides the WordPress default robots.txt file content with [do_robots()](https://developer.wordpress.org/reference/functions/do_robots/):
+* If no robots.txt is available, the plugin offers the content of the WordPress standard robots.txt file with [do_robots()](https://developer.wordpress.org/reference/functions/do_robots/):
 ````
 User-agent: *
 Disallow: /wp-admin/
@@ -62,7 +62,7 @@ wget -v -O - https://your-domain.tld/                                 # web site
 ````
 wget -v -O - -U blabla https://your-domain.tld/robots-check/          # User-agent: *  Disallow: /
 # or if your WordPress installation is in a subdirectory:
-wget -v -O - -U blabla https://your-domain.tld/subdir/robots-check/   # valid robots.txt enables crawling
+wget -v -O - -U blabla https://your-domain.tld/subdir/robots-check/   # User-agent: *  Disallow: /
 ````
 ````
 wget -v -O - -U blabla https://your-domain.tld/robots.txt             # User-agent: *  Disallow: /
