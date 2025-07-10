@@ -4,7 +4,7 @@
  * Description:       Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway
  * Plugin URI:        https://leafext.de/hp/categories/robots-txt/
  * Update URI:        https://github.com/hupe13/respect-robotstxt-or-block/
- * Version:           250706
+ * Version:           250710
  * Requires PHP:      8.1
  * Author:            hupe13
  * Author URI:        https://leafext.de/hp/
@@ -109,6 +109,7 @@ if ( is_admin() ) {
 	require_once __DIR__ . '/admin.php';
 	require_once __DIR__ . '/admin/resprobots-settings.php';
 	require_once __DIR__ . '/admin/resprobots-multi-settings.php';
+	require_once __DIR__ . '/github-respect-robotstxt.php';
 }
 
 function resprobots_error_log( $reason ) {

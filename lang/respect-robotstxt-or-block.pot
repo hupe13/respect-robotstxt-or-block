@@ -1,0 +1,141 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Respect the robots.txt or be blocked\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-10 08:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.28-nmm1\n"
+"X-Domain: respect-robotstxt-or-block"
+
+#: admin.php:57 admin/multisite.php:12
+msgid "Domains"
+msgstr ""
+
+#: admin.php:119
+msgid "Help"
+msgstr ""
+
+#: admin.php:27
+msgid "Help and Options"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://leafext.de/hp/"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://leafext.de/hp/categories/robots-txt/"
+msgstr ""
+
+#. Author of the plugin
+msgid "hupe13"
+msgstr ""
+
+#: admin/resprobots-settings.php:16
+msgid "Last rotation of values"
+msgstr ""
+
+#: admin/display-crawler-table.php:101
+msgid "Last rotation:"
+msgstr ""
+
+#: admin/resprobots-multi-settings.php:14
+msgid "manage one table for all domains or one table for each domain"
+msgstr ""
+
+#. %s is a link.
+#: admin.php:61
+#, php-format
+msgid "Multisite domains settings are available on %1$smain site%2$s."
+msgstr ""
+
+#: admin/resprobots-settings.php:17
+msgid "Next rotation of values"
+msgstr ""
+
+#: admin/resprobots-multi-settings.php:35
+msgid "one table for all"
+msgstr ""
+
+#: admin/resprobots-multi-settings.php:39
+msgid "one table for each domain"
+msgstr ""
+
+#: admin/resprobots-settings.php:15
+msgid "Path of log file"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Provide a robots.txt to forbid crawling and block the crawlers if they do it "
+"anyway"
+msgstr ""
+
+#: admin.php:53 admin.php:79
+msgid "Reset"
+msgstr ""
+
+#. Name of the plugin
+#: admin.php:26
+msgid "Respect the robots.txt or be blocked"
+msgstr ""
+
+#: admin.php:15 admin.php:16
+msgid "Robots"
+msgstr ""
+
+#: admin/resprobots-settings.php:14
+msgid "rotate the counts daily, weekly or monthly"
+msgstr ""
+
+#: admin/resprobots-settings.php:41
+msgid "Setting:"
+msgstr ""
+
+#: respect-robotstxt-or-block.php:90 respect-robotstxt-or-block.php:98
+#: admin.php:124
+msgid "Settings"
+msgstr ""
+
+#: admin.php:71
+msgid "Settings for the table"
+msgstr ""
+
+#: admin/display-crawler-table.php:91
+msgid "This is the table for all domains on this multisite."
+msgstr ""
+
+#. %s is a link.
+#: admin/display-crawler-table.php:87
+#, php-format
+msgid "This is the table for the domain %1$s."
+msgstr ""
+
+#: admin.php:128
+msgid "wp_badcrawler"
+msgstr ""
+
+#: admin/multisite.php:29
+msgid "You can have one table for all domains or one table for each domain."
+msgstr ""
+
+#. %s is a link.
+#: admin.php:86
+#, php-format
+msgid "You can manage the settings of the table %1$s %2$shere%3$s."
+msgstr ""
+
+#. %s is a count.
+#: admin/multisite.php:16
+#, php-format
+msgid "You have %s domains on your multisite."
+msgstr ""

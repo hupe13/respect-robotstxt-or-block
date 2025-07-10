@@ -96,6 +96,9 @@ function resprobots_admin() {
 		require_once __DIR__ . '/admin/display-crawler-table.php';
 		resprobots_help();
 	} else {
+		if ( function_exists( 'leafext_updates_from_github' ) ) {
+			leafext_updates_from_github();
+		}
 		require_once __DIR__ . '/admin/display-readme.php';
 	}
 	echo '</div>';

@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Respect the robots.txt or be blocked\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-10 07:58+0000\n"
+"PO-Revision-Date: 2025-07-10 11:54+0000\n"
+"Last-Translator: hupe13\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.28-nmm1\n"
+"X-Domain: respect-robotstxt-or-block"
+
+#: admin.php:57 admin/multisite.php:12
+msgid "Domains"
+msgstr "Domains"
+
+#: admin.php:119
+msgid "Help"
+msgstr "Hilfe"
+
+#: admin.php:27
+msgid "Help and Options"
+msgstr "Hilfe und Optionen"
+
+#. Author URI of the plugin
+msgid "https://leafext.de/hp/"
+msgstr "https://leafext.de/hp/"
+
+#. URI of the plugin
+msgid "https://leafext.de/hp/categories/robots-txt/"
+msgstr "https://leafext.de/hp/categories/robots-txt/"
+
+#. Author of the plugin
+msgid "hupe13"
+msgstr "hupe13"
+
+#: admin/resprobots-settings.php:16
+msgid "Last rotation of values"
+msgstr "Letzte Rotation der Werte"
+
+#: admin/display-crawler-table.php:101
+msgid "Last rotation:"
+msgstr "Letzte Rotation:"
+
+#: admin/resprobots-multi-settings.php:14
+msgid "manage one table for all domains or one table for each domain"
+msgstr ""
+"eine Tabelle für alle Domains oder eine Tabelle für jede Domain verwalten"
+
+#. %s is a link.
+#: admin.php:61
+#, php-format
+msgid "Multisite domains settings are available on %1$smain site%2$s."
+msgstr ""
+"Die Einstellungen für Multisite-Domains sind auf %1$sHauptseite%2$s "
+"verfügbar."
+
+#: admin/resprobots-settings.php:17
+msgid "Next rotation of values"
+msgstr "Nächste Rotation der Werte"
+
+#: admin/resprobots-multi-settings.php:35
+msgid "one table for all"
+msgstr "eine Tabelle für alle"
+
+#: admin/resprobots-multi-settings.php:39
+msgid "one table for each domain"
+msgstr " eine Tabelle für jede Domain"
+
+#: admin/resprobots-settings.php:15
+msgid "Path of log file"
+msgstr "Pfad der Logdatei"
+
+#. Description of the plugin
+msgid ""
+"Provide a robots.txt to forbid crawling and block the crawlers if they do it "
+"anyway"
+msgstr ""
+"Liefere eine robots.txt aus, die das Crawlen verbietet und blockiere die "
+"Crawler, die es trotzdem tun."
+
+#: admin.php:53 admin.php:79
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#. Name of the plugin
+#: admin.php:26
+msgid "Respect the robots.txt or be blocked"
+msgstr "Respektiere die robots.txt oder werde geblockt"
+
+#: admin.php:15 admin.php:16
+msgid "Robots"
+msgstr "Robots"
+
+#: admin/resprobots-settings.php:14
+msgid "rotate the counts daily, weekly or monthly"
+msgstr "Rotiere die Werte täglich, wöchentlich oder monatlich"
+
+#: admin/resprobots-settings.php:41
+msgid "Setting:"
+msgstr "Einstellung:"
+
+#: respect-robotstxt-or-block.php:90 respect-robotstxt-or-block.php:98
+#: admin.php:124
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin.php:71
+msgid "Settings for the table"
+msgstr "Einstellungen für die Tabelle"
+
+#: admin/display-crawler-table.php:91
+msgid "This is the table for all domains on this multisite."
+msgstr "Dies ist die Tabelle für alle Domains auf dieser Multisite."
+
+#. %s is a link.
+#: admin/display-crawler-table.php:87
+#, php-format
+msgid "This is the table for the domain %1$s."
+msgstr "Dies ist die Tabelle für die Domain %1$s."
+
+#: admin.php:128
+msgid "wp_badcrawler"
+msgstr "wp_badcrawler"
+
+#: admin/multisite.php:29
+msgid "You can have one table for all domains or one table for each domain."
+msgstr ""
+"Du kannst eine Tabelle für alle Domains oder eine Tabelle für jede Domain "
+"haben."
+
+#. %s is a link.
+#: admin.php:86
+#, php-format
+msgid "You can manage the settings of the table %1$s %2$shere%3$s."
+msgstr "Du kannst die Einstellungen der Tabelle %1$s %2$shier%3$s verwalten."
+
+#. %s is a count.
+#: admin/multisite.php:16
+#, php-format
+msgid "You have %s domains on your multisite."
+msgstr "Du hast %s Domains auf der Multisite."

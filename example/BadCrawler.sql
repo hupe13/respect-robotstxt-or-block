@@ -14,7 +14,6 @@ INSERT INTO `wp_badcrawler` (`browser`, `type`) VALUES
 ('DotBot', 'bot'),
 ('facebookexternalhit', 'bot'),
 ('Go-http-client', 'bot'),
-('Google-Read-Aloud', 'bot'),
 ('GuzzleHttp', 'bot'),
 ('http://www.nicecrawler.com/', 'bot'),
 ('https://about.censys.io', 'bot'),

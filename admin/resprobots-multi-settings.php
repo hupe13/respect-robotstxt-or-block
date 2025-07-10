@@ -36,7 +36,7 @@ function resprobots_multi_form( $field ) {
 
 			echo '<input type="radio" name="resprobots_multi_settings[sites]" value="' . esc_html( $truevalue ) . '" ';
 			checked( $multi === true );
-			echo '> ' . esc_html__( 'multiple tables', 'respect-robotstxt-or-block' );
+			echo '> ' . esc_html__( 'one table for each domain', 'respect-robotstxt-or-block' );
 			break;
 		default:
 			// var_dump( $field );
