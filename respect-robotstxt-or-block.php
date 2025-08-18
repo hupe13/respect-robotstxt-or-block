@@ -4,7 +4,7 @@
  * Description:       Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway
  * Plugin URI:        https://leafext.de/hp/categories/robots-txt/
  * Update URI:        https://github.com/hupe13/respect-robotstxt-or-block/
- * Version:           250710
+ * Version:           250818
  * Requires PHP:      8.1
  * Author:            hupe13
  * Author URI:        https://leafext.de/hp/
@@ -87,7 +87,7 @@ function resprobots_uninstall() {
 
 // Add settings to plugin page
 function resprobots_add_action_links( $actions ) {
-	$actions[] = '<a href="' . esc_url( admin_url( 'admin.php' ) . '?page=respect-robotstxt-or-block' ) . '">' . esc_html__( 'Settings', 'respect-robotstxt-or-block' ) . '</a>';
+	$actions[] = '<a href="' . esc_url( admin_url( 'options-general.php' ) . '?page=respect-robotstxt-or-block' ) . '">' . esc_html__( 'Settings', 'respect-robotstxt-or-block' ) . '</a>';
 	return $actions;
 }
 add_filter( 'plugin_action_links_' . RESPECT_ROBOTS_PLUGIN_BASENAME, 'resprobots_add_action_links' );
@@ -95,7 +95,7 @@ add_filter( 'plugin_action_links_' . RESPECT_ROBOTS_PLUGIN_BASENAME, 'resprobots
 // Add settings to network plugin page
 function resprobots_network_add_action_links( $actions, $plugin ) {
 	if ( $plugin === RESPECT_ROBOTS_PLUGIN_BASENAME ) {
-		$actions[] = '<a href="' . esc_url( admin_url( 'admin.php' ) . '?page=respect-robotstxt-or-block' ) . '">' . esc_html__( 'Settings', 'respect-robotstxt-or-block' ) . '</a>';
+		$actions[] = '<a href="' . esc_url( admin_url( 'options-general.php' ) . '?page=respect-robotstxt-or-block' ) . '">' . esc_html__( 'Settings', 'respect-robotstxt-or-block' ) . '</a>';
 	}
 	return $actions;
 }

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Respect the robots.txt or be blocked\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-10 07:58+0000\n"
-"PO-Revision-Date: 2025-07-10 11:54+0000\n"
+"PO-Revision-Date: 2025-08-18 16:48+0000\n"
 "Last-Translator: hupe13\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -15,11 +15,41 @@ msgstr ""
 "X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.28-nmm1\n"
 "X-Domain: respect-robotstxt-or-block"
 
+#: admin/mgt-crawler-table.php:175
+msgid "Add entry"
+msgstr "Füge einen Eintrag hinzu"
+
+#: admin/mgt-crawler-table.php:289
+msgid "all"
+msgstr "alle"
+
+#: admin/mgt-crawler-table.php:291
+msgid "Change view"
+msgstr "Wechsle die Ansicht"
+
+#: admin/mgt-crawler-table.php:161
+msgid "Delete selected entries"
+msgstr "Lösche die ausgewählten Einträge"
+
+#: admin/mgt-crawler-table.php:207
+msgid "Deleted:"
+msgstr "Gelöscht:"
+
+#: admin/mgt-crawler-table.php:190
+msgid "Deleting:"
+msgstr "Gelöscht:"
+
 #: admin.php:57 admin/multisite.php:12
 msgid "Domains"
 msgstr "Domains"
 
-#: admin.php:119
+#. entry for browser name and type name/bot.
+#: admin/mgt-crawler-table.php:244
+#, php-format
+msgid "Entry for %1$s %2$s and %3$s %4$s inserted."
+msgstr "Der Eintrag für %1$s %2$s und %3$s %4$s wurde hinzugefügt."
+
+#: admin.php:128
 msgid "Help"
 msgstr "Hilfe"
 
@@ -39,11 +69,15 @@ msgstr "https://leafext.de/hp/categories/robots-txt/"
 msgid "hupe13"
 msgstr "hupe13"
 
+#: admin/mgt-crawler-table.php:217
+msgid "Inserting"
+msgstr "Einfügen"
+
 #: admin/resprobots-settings.php:16
 msgid "Last rotation of values"
 msgstr "Letzte Rotation der Werte"
 
-#: admin/display-crawler-table.php:101
+#: admin/display-crawler-table.php:110
 msgid "Last rotation:"
 msgstr "Letzte Rotation:"
 
@@ -72,9 +106,17 @@ msgstr "eine Tabelle für alle"
 msgid "one table for each domain"
 msgstr " eine Tabelle für jede Domain"
 
+#: admin/mgt-crawler-table.php:286
+msgid "only without access"
+msgstr "nur ohne Zugriffe"
+
 #: admin/resprobots-settings.php:15
 msgid "Path of log file"
 msgstr "Pfad der Logdatei"
+
+#: admin/mgt-crawler-table.php:273
+msgid "Please select view"
+msgstr "Wähle bitte die Ansicht aus"
 
 #. Description of the plugin
 msgid ""
@@ -101,12 +143,16 @@ msgstr "Robots"
 msgid "rotate the counts daily, weekly or monthly"
 msgstr "Rotiere die Werte täglich, wöchentlich oder monatlich"
 
+#: admin/mgt-crawler-table.php:115
+msgid "Select to delete"
+msgstr "Wähle die zu löschenden Einträge aus"
+
 #: admin/resprobots-settings.php:41
 msgid "Setting:"
 msgstr "Einstellung:"
 
 #: respect-robotstxt-or-block.php:90 respect-robotstxt-or-block.php:98
-#: admin.php:124
+#: admin.php:133
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -114,19 +160,35 @@ msgstr "Einstellungen"
 msgid "Settings for the table"
 msgstr "Einstellungen für die Tabelle"
 
-#: admin/display-crawler-table.php:91
+#: admin/mgt-crawler-table.php:209
+msgid "There was an error deleting the entry"
+msgstr "Es gab einen Fehler beim Löschen dieses Eintrages"
+
+#: admin/mgt-crawler-table.php:255
+msgid "There was an error in the form."
+msgstr "Es gab einen Fehler im Formular."
+
+#: admin/mgt-crawler-table.php:219
+msgid "There was an error inserting the entry for"
+msgstr "Es gab einen Fehler beim Eintragen von"
+
+#: admin/mgt-crawler-table.php:26 admin/display-crawler-table.php:100
 msgid "This is the table for all domains on this multisite."
 msgstr "Dies ist die Tabelle für alle Domains auf dieser Multisite."
 
 #. %s is a link.
-#: admin/display-crawler-table.php:87
+#: admin/mgt-crawler-table.php:22 admin/display-crawler-table.php:96
 #, php-format
 msgid "This is the table for the domain %1$s."
 msgstr "Dies ist die Tabelle für die Domain %1$s."
 
-#: admin.php:128
+#: admin.php:137
 msgid "wp_badcrawler"
 msgstr "wp_badcrawler"
+
+#: admin.php:141
+msgid "wp_badcrawler_mgt"
+msgstr "wp_badcrawler_mgt"
 
 #: admin/multisite.php:29
 msgid "You can have one table for all domains or one table for each domain."

@@ -35,7 +35,7 @@ function resprobots_get_domains_mgt() {
 			'site'     => get_current_blog_id(),
 			'table'    => $table_name,
 			'domain'   => $domain,
-			'mgt-site' => admin_url( 'admin.php' ) . '?page=respect-robotstxt-or-block&tab=settings',
+			'mgt-site' => admin_url( 'options-general.php' ) . '?page=respect-robotstxt-or-block&tab=settings',
 		);
 	} elseif ( resprobots_many_domains() ) { // Multisite
 		// every domain has its table

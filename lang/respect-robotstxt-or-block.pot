@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Respect the robots.txt or be blocked\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 08:54+0000\n"
+"POT-Creation-Date: 2025-08-18 16:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,11 +16,41 @@ msgstr ""
 "X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.28-nmm1\n"
 "X-Domain: respect-robotstxt-or-block"
 
+#: admin/mgt-crawler-table.php:175
+msgid "Add entry"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:289
+msgid "all"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:291
+msgid "Change view"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:161
+msgid "Delete selected entries"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:207
+msgid "Deleted:"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:190
+msgid "Deleting:"
+msgstr ""
+
 #: admin.php:57 admin/multisite.php:12
 msgid "Domains"
 msgstr ""
 
-#: admin.php:119
+#. entry for browser name and type name/bot.
+#: admin/mgt-crawler-table.php:244
+#, php-format
+msgid "Entry for %1$s %2$s and %3$s %4$s inserted."
+msgstr ""
+
+#: admin.php:128
 msgid "Help"
 msgstr ""
 
@@ -40,11 +70,15 @@ msgstr ""
 msgid "hupe13"
 msgstr ""
 
+#: admin/mgt-crawler-table.php:217
+msgid "Inserting"
+msgstr ""
+
 #: admin/resprobots-settings.php:16
 msgid "Last rotation of values"
 msgstr ""
 
-#: admin/display-crawler-table.php:101
+#: admin/display-crawler-table.php:110
 msgid "Last rotation:"
 msgstr ""
 
@@ -70,8 +104,16 @@ msgstr ""
 msgid "one table for each domain"
 msgstr ""
 
+#: admin/mgt-crawler-table.php:286
+msgid "only without access"
+msgstr ""
+
 #: admin/resprobots-settings.php:15
 msgid "Path of log file"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:273
+msgid "Please select view"
 msgstr ""
 
 #. Description of the plugin
@@ -97,12 +139,16 @@ msgstr ""
 msgid "rotate the counts daily, weekly or monthly"
 msgstr ""
 
+#: admin/mgt-crawler-table.php:115
+msgid "Select to delete"
+msgstr ""
+
 #: admin/resprobots-settings.php:41
 msgid "Setting:"
 msgstr ""
 
 #: respect-robotstxt-or-block.php:90 respect-robotstxt-or-block.php:98
-#: admin.php:124
+#: admin.php:133
 msgid "Settings"
 msgstr ""
 
@@ -110,18 +156,34 @@ msgstr ""
 msgid "Settings for the table"
 msgstr ""
 
-#: admin/display-crawler-table.php:91
+#: admin/mgt-crawler-table.php:209
+msgid "There was an error deleting the entry"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:255
+msgid "There was an error in the form."
+msgstr ""
+
+#: admin/mgt-crawler-table.php:219
+msgid "There was an error inserting the entry for"
+msgstr ""
+
+#: admin/mgt-crawler-table.php:26 admin/display-crawler-table.php:100
 msgid "This is the table for all domains on this multisite."
 msgstr ""
 
 #. %s is a link.
-#: admin/display-crawler-table.php:87
+#: admin/mgt-crawler-table.php:22 admin/display-crawler-table.php:96
 #, php-format
 msgid "This is the table for the domain %1$s."
 msgstr ""
 
-#: admin.php:128
+#: admin.php:137
 msgid "wp_badcrawler"
+msgstr ""
+
+#: admin.php:141
+msgid "wp_badcrawler_mgt"
 msgstr ""
 
 #: admin/multisite.php:29

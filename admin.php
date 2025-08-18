@@ -95,6 +95,15 @@ function resprobots_admin() {
 	} elseif ( $active_tab === 'wp_badcrawler' ) {
 		require_once __DIR__ . '/admin/display-crawler-table.php';
 		resprobots_help();
+	} elseif ( $active_tab === 'wp_badcrawler_mgt' ) {
+		require_once __DIR__ . '/admin/mgt-crawler-table.php';
+		wp_enqueue_style(
+			'resprobots-css',
+			plugins_url( dirname( RESPECT_ROBOTS_PLUGIN_BASENAME ) . '/admin/admin.css' ),
+			array(),
+			1
+		);
+		resprobots_mgt_table();
 	} else {
 		if ( function_exists( 'leafext_updates_from_github' ) ) {
 			leafext_updates_from_github();
@@ -126,6 +135,10 @@ function resprobots_admin_robots_tabs() {
 	$tabs[] = array(
 		'tab'   => 'wp_badcrawler',
 		'title' => __( 'wp_badcrawler', 'respect-robotstxt-or-block' ),
+	);
+	$tabs[] = array(
+		'tab'   => 'wp_badcrawler_mgt',
+		'title' => __( 'wp_badcrawler_mgt', 'respect-robotstxt-or-block' ),
 	);
 
 	foreach ( $tabs as $tab ) {

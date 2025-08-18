@@ -51,18 +51,35 @@ function resprobots_data_table( $db_data ) {
 			}
 			$row_vals[] = $value;
 		}
-		if ( $alternate ) {
-			$alternate = false;
-			$class     = ' class="quicktags"';
+		$class = '';
+		if ( $row_vals[3] === '0' && $row_vals[5] === '0' && $row_vals[7] === '0' ) {
+			if ( $alternate ) {
+				$alternate = false;
+				$class     = ' class="red04"';
+			} else {
+				$alternate = true;
+				$class     = ' class="red02"';
+			}
+		} elseif ( $row_vals[4] === '0' && $row_vals[6] === '0' && $row_vals[8] === '0' ) {
+			if ( $alternate ) {
+				$alternate = false;
+				$class     = ' class="green04"';
+			} else {
+				$alternate = true;
+				$class     = ' class="green02"';
+			}
+		} elseif ( $alternate ) {
+				$alternate = false;
+				$class     = ' class="orange04"';
 		} else {
 			$alternate = true;
-			$class     = '';
+			$class     = ' class="orange02"';
 		}
 		$rows[] = '<tr' . $class . '><td style="text-align: center;">' . join( '</td><td style="text-align: center;">', $row_vals ) . '</td></tr>';
 	}
 
 	// Put the table together and output
-	return '<table border=1 class="widefat fixed>' . $header . '<tbody>' . join( $rows ) . '</tbody></table>';
+	return '<table border=1>' . $header . '<tbody>' . join( $rows ) . '</tbody></table>';
 }
 
 function resprobots_help() {
@@ -104,6 +121,13 @@ function resprobots_help() {
 		ARRAY_A
 	);
 	$text   .= resprobots_data_table( $entries );
+
+	wp_enqueue_style(
+		'resprobots-css',
+		plugins_url( dirname( RESPECT_ROBOTS_PLUGIN_BASENAME ) . '/admin/admin.css' ),
+		array(),
+		1
+	);
 
 	$allowed_html = wp_kses_allowed_html( 'post' );
 	echo wp_kses( $text, $allowed_html );

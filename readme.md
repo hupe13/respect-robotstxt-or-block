@@ -3,7 +3,7 @@
 Contributors: hupe13    
 Tags: robots.txt, bad crawlers, bad bots  
 Tested up to: 6.8  
-Stable tag: 250710     
+Stable tag: 250818     
 Requires at least: 6.7     
 Requires PHP: 8.1     
 License: GPLv2 or later
@@ -20,7 +20,7 @@ Please check regularly the Github repository or use [leafext-update-github](http
 
 ## Howto
 
-* You need some knowledge about .htaccess and mysql.
+* You need some knowledge about .htaccess.
 
 * You have a robots.txt or create a robots.txt in every server root directory as usual.
 
@@ -37,12 +37,7 @@ Allow: /wp-admin/admin-ajax.php
 
 * Here you can configure the plugin and see infos about the table(s).
 
-* You can create and change table entries for example with
-
-    - (list without rating and completeness)
-    - phpmyadmin from your hoster or [WP phpMyAdmin](https://de.wordpress.org/plugins/wp-phpmyadmin-extension/)
-    - [WP Adminer](https://wordpress.org/plugins/pexlechris-adminer/)
-    - [Simple Table Manager](https://wordpress.org/support/plugin/simple-table-manager/)
+* New in 250818: Now the plugin provides a simple editor to add and delete table entries.
 
 * Create a test entry in `wp_badcrawler` with any (not existing) browser name, for example "blabla".
 
@@ -87,3 +82,5 @@ wget -v -O - -U blabla https://your-domain.tld/                       # Status c
 * Please check your web servers log files, to get the bad crawlers strings and check that you are not blocking the good crawlers!
 
 * Check the debug log too.
+
+* It's a battle against windmills! Some crawlers are always there, others come and go.
