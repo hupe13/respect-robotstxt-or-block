@@ -40,9 +40,6 @@ function resprobots_display_table_with_delete( $db_data ) {
 		return false;
 	}
 
-	// $tablehdr = '<tr><th>Browser</th><th>Type</th><th>Last</th><th>Delete</th></tr>';
-	// $header   = '<thead>' . $tablehdr . '</thead>';
-
 	$resprobots_options = resprobots_get_options();
 	switch ( $resprobots_options['rotate'] ) {
 		case 'monthly':
@@ -72,11 +69,6 @@ function resprobots_display_table_with_delete( $db_data ) {
 	foreach ( $db_data as $row ) {
 		$row_vals = array();
 		foreach ( $row as $key => $value ) {
-			// format any date values properly with WP date format
-			if ( strpos( $key, 'date' ) !== false || strpos( $key, 'modified' ) !== false ) {
-				$date_format = get_option( 'date_format' );
-				$value       = mysql2date( $date_format, $value );
-			}
 			$row_vals[] = $value;
 		}
 		$class = '';
@@ -103,7 +95,6 @@ function resprobots_display_table_with_delete( $db_data ) {
 			$alternate = true;
 			$class     = ' class="orange02"';
 		}
-		// array_splice( $row_vals, 3, 6 );
 
 		$table  = '<tr' . $class . '>
 		<td style="text-align: center;">' . join( '</td><td style="text-align: center;">', $row_vals ) . '</td>';

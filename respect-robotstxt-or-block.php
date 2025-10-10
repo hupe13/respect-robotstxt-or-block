@@ -132,7 +132,7 @@ function resprobots_error_log( $reason ) {
 
 	if ( $logfile !== '' ) {
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-		error_log( '[' . current_time( 'mysql' ) . '] ' . get_site_url() . ': ' . $reason . "\r\n", 3, $logfile );
+		error_log( '[' . current_time( 'mysql' ) . '] ' . get_site_url() . ' - robots - ' . $reason . "\r\n", 3, $logfile );
 	}
 }
 

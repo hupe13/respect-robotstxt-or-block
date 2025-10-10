@@ -43,12 +43,6 @@ function resprobots_data_table( $db_data ) {
 	foreach ( $db_data as $row ) {
 		$row_vals = array();
 		foreach ( $row as $key => $value ) {
-
-			// format any date values properly with WP date format
-			if ( strpos( $key, 'date' ) !== false || strpos( $key, 'modified' ) !== false ) {
-				$date_format = get_option( 'date_format' );
-				$value       = mysql2date( $date_format, $value );
-			}
 			$row_vals[] = $value;
 		}
 		$class = '';

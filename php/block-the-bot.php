@@ -13,29 +13,30 @@ function resprobots_get_robots_txt( $posts ) {
 	global $wpdb;
 	$resprobots_robots_slug = 'robots-check'; // URL slug of the robots.txt fake page
 	if ( ( strtolower( $wp->request ) === $resprobots_robots_slug || strtolower( $wp->request ) === 'robots.txt' ) ) {
-		$agent      = getenv( 'HTTP_USER_AGENT' );
-		$table_name = resprobots_transient_table();
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-		$badbot = $wpdb->query(
-			$wpdb->prepare(
-				"UPDATE %i SET robots = robots + 1 WHERE type = 'bot' AND INSTR('" . esc_sql( $agent ) . "', browser)",
-				$table_name
-			)
-		);
-		if ( $badbot > 0 ) {
-			header( 'Content-Type: text/plain; charset=UTF-8' );
-			echo "User-agent: *\r\n" .
-			'Disallow: /' . "\r\n";
-			exit;
-		}
-
-		$ip   = getenv( 'REMOTE_ADDR' );
-		$host = gethostbyaddr( $ip );
-		if ( $host !== $ip && $host !== false ) {
+		$agent = sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ?? '' ) );
+		if ( $agent !== '' ) {
+			$table_name = resprobots_transient_table();
 			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$badbot = $wpdb->query(
 				$wpdb->prepare(
-					"UPDATE %i SET robots = robots + 1 WHERE type = 'name' AND INSTR('" . esc_sql( $host ) . "', browser)",
+					"UPDATE %i SET robots = robots + 1 WHERE type = 'bot' AND INSTR('" . esc_sql( $agent ) . "', browser)",
+					$table_name
+				)
+			);
+			if ( $badbot > 0 ) {
+				header( 'Content-Type: text/plain; charset=UTF-8' );
+				echo "User-agent: *\r\n" .
+				'Disallow: /' . "\r\n";
+				exit;
+			}
+		}
+		$ip       = sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ?? '' ) );
+		$hostname = gethostbyaddr( $ip );
+		if ( $hostname !== $ip && $hostname !== false ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+			$badbot = $wpdb->query(
+				$wpdb->prepare(
+					"UPDATE %i SET robots = robots + 1 WHERE type = 'name' AND INSTR('" . esc_sql( $hostname ) . "', browser)",
 					$table_name
 				)
 			);
@@ -49,7 +50,8 @@ function resprobots_get_robots_txt( $posts ) {
 		}
 
 		// Default 'WordPress/' . get_bloginfo( 'version' ) . ‘; ‘ . get_bloginfo( 'url' ).
-		$response = wp_remote_get( 'https://' . getenv( 'HTTP_HOST' ) . '/robots.txt' );
+		$http_host = sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ?? '' ) );
+		$response  = wp_remote_get( 'https://' . $http_host . '/robots.txt' );
 		if ( is_array( $response ) && wp_remote_retrieve_response_code( $response ) === 200 ) {
 			header( 'Content-Type: text/plain; charset=UTF-8' );
 			echo esc_html( $response['body'] ); // use the content
@@ -69,9 +71,9 @@ function resprobots_badcrawler() {
 	global $user_login;
 	global $wpdb;
 
-	$agent = getenv( 'HTTP_USER_AGENT' );
-	$ip    = getenv( 'REMOTE_ADDR' );
-	$file  = getenv( 'REQUEST_URI' );
+	$agent = sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ?? '' ) );
+	$ip    = sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ?? '' ) );
+	$file  = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ?? '' ) );
 
 	if ( ! is_admin()
 	&& $ip !== '127.0.0.1'
@@ -79,10 +81,14 @@ function resprobots_badcrawler() {
 	&& $user_login === ''
 	&& $agent !== ''
 	&& strpos( $agent, 'WordPress' ) === false
+	&& strpos( $agent, 'WP-URLDetails' ) === false
+	&& strpos( $agent, 'cronBROWSE' ) === false
 	&& strpos( $agent, get_site_url() ) === false
 	&& strpos( $file, 'robots.txt' ) === false
 	&& strpos( $file, 'robots-check' ) === false
+	&& strpos( $agent, 'Mastodon' ) === false
 	) {
+		// resprobots_error_log( 'resprobots_badcrawler - ' . $ip );
 		$table_name = resprobots_transient_table();
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$badbot = $wpdb->query(
@@ -97,24 +103,25 @@ function resprobots_badcrawler() {
 			exit();
 		}
 
-		$host = gethostbyaddr( $ip );
-		if ( $host !== $ip && $host !== false ) {
+		$hostname = gethostbyaddr( $ip );
+		if ( $hostname !== $ip && $hostname !== false ) {
 			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$badbot = $wpdb->query(
 				$wpdb->prepare(
-					"UPDATE %i SET count = count + 1 WHERE type = 'name' AND INSTR('" . esc_sql( $host ) . "', browser)",
+					"UPDATE %i SET count = count + 1 WHERE type = 'name' AND INSTR('" . esc_sql( $hostname ) . "', browser)",
 					$table_name
 				)
 			);
 			if ( $badbot > 0 ) {
-				resprobots_error_log( 'BadHostname: ' . $ip . ' - ' . $host );
+				resprobots_error_log( 'BadHostname: ' . $ip . ' - ' . $hostname );
 				status_header( 403 );
+				header( 'HTTP/1.1 403 Forbidden' );
 				exit();
 			}
 		}
 	}
 }
-add_action( 'init', 'resprobots_badcrawler', 8 );
+add_action( 'init', 'resprobots_badcrawler', 7 );
 
 function resprobots_transient_table() {
 	$table_name = get_transient( 'resprobots_badcrawler_table' );

@@ -3,7 +3,7 @@
 Contributors: hupe13    
 Tags: robots.txt, bad crawlers, bad bots  
 Tested up to: 6.8  
-Stable tag: 250818     
+Stable tag: 251010     
 Requires at least: 6.7     
 Requires PHP: 8.1     
 License: GPLv2 or later
