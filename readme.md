@@ -10,6 +10,10 @@ License: GPLv2 or later
 
 Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway.
 
+# NOTE
+
+I will not continue developing this plugin because [Block old browser versions and suspicious browsers](https://github.com/hupe13/wimb-and-block) provides its functions.
+
 ## Description
 
 Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway.
