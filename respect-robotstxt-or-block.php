@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:       Respect the robots.txt or be blocked
- * Description:       Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway
+ * Description:       I am terminating the development. - Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway
  * Plugin URI:        https://leafext.de/hp/categories/robots-txt/
  * Update URI:        https://github.com/hupe13/respect-robotstxt-or-block/
- * Version:           250818
+ * Version:           251030
  * Requires PHP:      8.1
  * Author:            hupe13
  * Author URI:        https://leafext.de/hp/

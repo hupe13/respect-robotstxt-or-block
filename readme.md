@@ -3,18 +3,18 @@
 Contributors: hupe13    
 Tags: robots.txt, bad crawlers, bad bots  
 Tested up to: 6.8  
-Stable tag: 251010     
+Stable tag: 251030     
 Requires at least: 6.7     
 Requires PHP: 8.1     
 License: GPLv2 or later
 
-Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway.
+I am terminating the development. - Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway.
+
+## Description
 
 # NOTE
 
 I will not continue developing this plugin because [Block old browser versions and suspicious browsers](https://github.com/hupe13/wimb-and-block) provides its functions.
-
-## Description
 
 Provide a robots.txt to forbid crawling and block the crawlers if they do it anyway.
 
